@@ -18,11 +18,6 @@ app.set("view engine","ejs");
 app.use(bodyParser.urlencoded({extended:true}));
 mongoose.connect(process.env.LDATABASEURL,{useNewUrlParser:true});
 
-app.use((req,res,next) => {
-	res.locals.currentUser = req.user;
-	next(); 
-});
-
 app.use(expressSession({
 	secret:"digidocs",
 	resave:false,
@@ -30,16 +25,22 @@ app.use(expressSession({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
 passport.use(new localStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser);
-passport.deserializeUser(User.deserializeUser);
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+app.use((req,res,next) => {
+	res.locals.currentUser = req.user;
+	next(); 
+});
 
 app.get("/", (req,res) => {
 	res.send("this is going great sir");
 });
 
 app.use("/user",userRoutes);
-app.use("/auth",authRoutes);
+app.use(authRoutes);
 
 app.listen(process.env.PORT || 3000,process.env.IP,() => {
 	console.log("working fine sir ... ");

@@ -17,7 +17,7 @@ const checkAuthentication = (req,res,next) => {
 
 router.get("/docs/:username",checkAuthentication,(req,res) => {
 	console.log("docs : "+req.params.username);
-	res.send("found the docs for : "+ req.user.username);//this works fine
+	res.render("profile");
 });
 
 module.exports = router;

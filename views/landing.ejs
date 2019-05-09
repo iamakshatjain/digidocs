@@ -1,0 +1,13 @@
+<h1>Welcome back sir ... </h1>
+<%if(!currentUser){%>
+<div>
+<a href="/login">Login</a>
+</div>
+<a href="/register">Register</a>
+
+<%}else{%>
+
+<h3>You are logged in as : <%=currentUser.username%></h3>
+<a href="logout">Logout</a>
+
+<%}%>

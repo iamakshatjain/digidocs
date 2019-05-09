@@ -4,6 +4,17 @@ const passport = require("passport");
 const localStrategy = require("passport-local");
 
 const User = require("../models/user");
+const checkAuthentication = (req,res,next) => {
+	if(req.isAuthenticated()){
+		if(req.user.username == req.params.username)//only the specified user must be allowed
+			next();//continue
+		else
+			res.redirect("/login");
+	}
+	else{
+		res.redirect("/login");
+	}
+}
 
 router.get("/login",(req,res) => {
 	res.render("login");
@@ -29,15 +40,16 @@ router.post("/register", (req,res) => {
 			res.redirect("/register");
 		}
 		else{
-			passport.authenticate("local", (req,res) => {
-				res.redirect("/user/docs/"+req.body.username);
+			passport.authenticate("local")(req,res,() => {
 				console.log("user registered : ");
 				console.log(req.user.username);
+				res.redirect("/user/docs/"+req.body.username);
 			});
 		}
 	});
 });
 
+//todo:this logs back in on going back after the logout
 router.get("/logout",(req,res) => {
 	console.log("user logged out : "+req.user.username);
 	req.logout();

@@ -16,7 +16,7 @@ dotenv.config();
 app.use(express.static("./public"));
 app.set("view engine","ejs");
 app.use(bodyParser.urlencoded({extended:true}));
-mongoose.connect(process.env.LDATABASEURL,{useNewUrlParser:true});
+mongoose.connect(process.env.DATABASEURL,{useNewUrlParser:true});
 
 app.use(expressSession({
 	secret:"digidocs",
@@ -36,7 +36,8 @@ app.use((req,res,next) => {
 });
 
 app.get("/", (req,res) => {
-	res.send("this is going great sir");
+	// res.send("this is going great sir");
+	res.render("landing");
 });
 
 app.use("/user",userRoutes);

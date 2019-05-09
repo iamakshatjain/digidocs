@@ -1,0 +1,34 @@
+{
+  "name": "digidocs",
+  "version": "1.0.0",
+  "description": "Keep all your documents digitally safe and secure and use them handy anytime with your mobile phone",
+  "author": "Akshat Jain",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.16.1",
+    "mongoose": "^5.5.6",
+    "nodemon": "^1.19.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm start",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamakshatjain/digidocs.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamakshatjain/digidocs/issues"
+  },
+  "homepage": "https://github.com/iamakshatjain/digidocs#readme"
+}

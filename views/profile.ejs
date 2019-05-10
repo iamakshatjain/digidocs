@@ -8,10 +8,10 @@
 	<p> Keep your documents with us, keep them safe.</p>
 </div>
 
-<h1 class="display-4">Upload</h1>
 <% if(Documents.length == 0){ %>
-	<h3 class="display-3">You need to upload nothing!</h3>
+	<h3 class="display-4">You need to upload nothing!</h3>
 <% }else{ %>
+	<h1 class="display-4">Upload</h1>
 	<form action="/user/docs/<%= currentUser.username %>" method="POST">
 	
 		<div class="row">
@@ -43,10 +43,11 @@
 <% } %>
 <br>
 <hr class="my-5">
-<h1 class="display-4">Uploaded</h1>
+
 <% if(uploadedDocs.length == 0){ console.log(uploadedDocs)%>
-	<h3 class="display-3">You have uploaded nothing yet!</h3>
+	<h3 class="display-4">You have uploaded nothing yet!</h3>
 <% }else{ %>
+	<h1 class="display-4">Uploaded</h1>
 	<div class="row">
 		<% for (let updoc of uploadedDocs){%>
 			<div class="card col-sm-4 col-md-3">

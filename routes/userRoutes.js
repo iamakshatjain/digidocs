@@ -16,7 +16,7 @@ const checkAuthentication = (req,res,next) => {
 	}
 }
 
-const Documents = ["Aadhaar Card","Driving Liscence","PAN Card","Ration Card"];//since not actual documents are uploaded
+const Documents = ["Aadhaar Card","Driving Liscence","PAN Card","Ration Card","Passport","Birth Certificate","Arms Licsence","BPL Certificate","Transfer Certificate","Identity Card","Green Card"];//since not actual documents are uploaded
 //else this could be array of objects(documents)
 
 router.get("/docs/:username",checkAuthentication,(req,res) => {

@@ -21,7 +21,6 @@ const Documents = ["Aadhaar Card","Driving Liscence","PAN Card","Ration Card"];/
 
 router.get("/docs/:username",checkAuthentication,(req,res) => {
 	console.log("docs : "+req.params.username);
-	var uploadedDocs=[];
 	User.findOne({username:req.params.username},(err,foundUser) => {
 		if(err){
 			console.log(err);
@@ -49,9 +48,12 @@ router.post("/docs/:username",(req,res) => {
 			res.send("User Not Found");
 		}
 		else{
-				for(let doc of req.body.documents){
-					foundUser.documents.push(doc);
+				if(req.body.documents!=null){
+					for(let doc of req.body.documents){
+						foundUser.documents.push(doc);
+					}
 				}
+					
 				foundUser.save((err)=>{
 					if(err){
 						console.log(err);

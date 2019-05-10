@@ -100,3 +100,56 @@ p{
 	font-size: 2rem;
 	margin-left: 50px;
 }
+.card{
+	margin:5px;
+
+	background-color: #78909c;
+	/*height: 40vh;*/
+	/*padding: 15px;*/
+	background-color: #fafafa;
+	min-width: 250px;
+	text-align: center;
+
+}
+/*.card-img-top{
+	width:50%;
+}*/
+
+/*styling checkbox*/
+input[type="checkbox"]{
+	display:none;
+}
+
+.card + input[type="checkbox"]:checked{
+	background-color: grey;
+}
+
+:checked + label{
+	color: red;
+	transition: 0.5s ease;
+	font-size: 1.7rem;
+}
+
+label:hover{
+	color: red;
+	transition: 0.5s ease;
+	font-size: 1.7rem;
+}
+
+:not(:checked) + label{
+	color: black;
+	transition: 0.5s ease;
+	font-size: 1rem;
+}
+
+.jumbotron{
+	margin-top: 20px;
+}
+
+#user-img{
+	vertical-align: middle;
+	box-sizing: border-box;
+	width: 200px;
+	border-radius: 100px;
+	margin:15px;
+}

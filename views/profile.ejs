@@ -1,42 +1,68 @@
 <% include partials/nav.ejs %>
+<div class="container">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHrGqkQUOBDFP98nlaVm0AFdiHAFgXZQFxTd-5uj1Y-QSYon1z" class="float-right" id="user-img" alt="user-image">
+<div class="jumbotron">
+	<h1 class="display-4 mr-auto">Hi! <%= currentUser.username %></h1>
+	<p class="lead mr-auto">Here are all your documents.</p>
+	<hr class="my-4">
+	<p> Keep your documents with us, keep them safe.</p>
+</div>
+
+<h1 class="display-4">Upload</h1>
 <% if(Documents.length == 0){ %>
-	<h3>You need to upload nothing!</h3>
+	<h3 class="display-3">You need to upload nothing!</h3>
 <% }else{ %>
-	<h1> Please Upload</h1>
 	<form action="/user/docs/<%= currentUser.username %>" method="POST">
-	<ol>
-	<% for (let doc of Documents){%>
-		<li>
-			<div class="document">
-				<span class="document-name">
-					<label for="<%= doc %>">
-						<%= doc %> : 
-						<input id="<%= doc %>" value="<%= doc %>" type="checkbox" name="documents[]">
-					</label>
-				</span>
-			</div>
-		</li>
-	<% }%>
-	</ol>
-	<button type="submit">Submit</button>
+	
+		<div class="row">
+			 
+				<% for (let doc of Documents){%>
+						<div class="card col-sm-4 col-md-3">
+							<input id="<%= doc %>" value="<%= doc %>" type="checkbox" name="documents[]"/>
+							<label for="<%= doc %>">
+								<img class="card-img-top" src="https://www.svgrepo.com/show/28320/id-card.svg">
+								<hr>
+								<div class="card-body">
+									<div class="document">
+										<h5 class="document-name card-title">
+											
+												<%= doc %>
+											
+										</h5>
+
+									</div>
+								</div>
+							</label>
+						</div>
+				<% }%>
+			
+		</div>
+	<br>
+	<button type="submit" class="btn btn-primary btn-lg">Upload</button>
 	</form>
 <% } %>
-
-<h1>Documents you uploaded</h1>
+<br>
+<hr class="my-5">
+<h1 class="display-4">Uploaded</h1>
 <% if(uploadedDocs.length == 0){ console.log(uploadedDocs)%>
-	<h3>You uploaded nothing yet!</h3>
+	<h3 class="display-3">You have uploaded nothing yet!</h3>
 <% }else{ %>
-	<ol>
+	<div class="row">
 		<% for (let updoc of uploadedDocs){%>
-			<li>
-				<div class="document">
-					<span class="document-name">
-						<%= updoc %>
-					</span>
+			<div class="card col-sm-4 col-md-3">
+			<img class="card-img-top" src="https://www.svgrepo.com/show/28320/id-card.svg">
+			<hr>
+				<div class="card-body">
+					<div class="document">
+						<h5 class="document-name card-title">
+							<%= updoc %>
+						</h5>
+					</div>
 				</div>
-			</li>
+			</div>
 		<% }%>
-	</ol>
+	</div>
 <%} %>
+</div>
 
 <% include partials/footer.ejs %>

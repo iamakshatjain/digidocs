@@ -1,14 +1,42 @@
-<h1><%=currentUser.username%></h1>
-<p>
-	found the documents for ya!
-<p>
+<% include partials/nav.ejs %>
+<% if(Documents.length == 0){ %>
+	<h3>You need to upload nothing!</h3>
+<% }else{ %>
+	<h1> Please Upload</h1>
+	<form action="/user/docs/<%= currentUser.username %>" method="POST">
+	<ol>
+	<% for (let doc of Documents){%>
+		<li>
+			<div class="document">
+				<span class="document-name">
+					<label for="<%= doc %>">
+						<%= doc %> : 
+						<input id="<%= doc %>" value="<%= doc %>" type="checkbox" name="documents[]">
+					</label>
+				</span>
+			</div>
+		</li>
+	<% }%>
+	</ol>
+	<button type="submit">Submit</button>
+	</form>
+<% } %>
 
-<ol>
-	<li>one</li>
-	<li>two</li>
-	<li>three</li>
-</ol>
-<div>
-<a href="/logout">logout</a>
-</div>
-<a href="/">Home</a>
+<h1>Documents you uploaded</h1>
+<% if(uploadedDocs.length == 0){ console.log(uploadedDocs)%>
+	<h3>You uploaded nothing yet!</h3>
+<% }else{ %>
+	<ol>
+		<% for (let updoc of uploadedDocs){%>
+			<li>
+				<div class="document">
+					<span class="document-name">
+						<%= updoc %>
+					</span>
+				</div>
+			</li>
+		<% }%>
+	</ol>
+<%} %>
+
+<% include partials/footer.ejs %>

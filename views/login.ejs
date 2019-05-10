@@ -1,13 +1,24 @@
-<form action="/login" method="post">
-    <div>
-        <label>Username:</label>
-        <input type="text" name="username"/>
-    </div>
-    <div>
-        <label>Password:</label>
-        <input type="password" name="password"/>
-    </div>
-    <div>
-        <input type="submit" value="Log In"/>
-    </div>
-</form>
+<% include partials/nav %>
+<h1 class="text-center">
+    Log In
+</h1>
+
+<div style="width:40% ; margin:30px auto">
+    <form action="/login" method="POST">
+      <div class="form-group">
+        <input type="text" class="form-control" id="username" placeholder="Username" name="username">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+      </div>
+    
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block">LogIn</button>
+      </div>
+    </form>
+    <p>
+      Not a member?
+      <a href="/register">Signup</a>
+    </p>
+</div>
+<% include partials/footer%>

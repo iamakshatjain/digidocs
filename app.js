@@ -30,9 +30,9 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use((req,res,next) => {
+app.use(function(req,res,next){//to pass this to all the templates
 	res.locals.currentUser = req.user;
-	next(); 
+	next();
 });
 
 app.get("/", (req,res) => {

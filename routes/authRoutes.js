@@ -17,7 +17,11 @@ const checkAuthentication = (req,res,next) => {
 }
 
 router.get("/login",(req,res) => {
-	res.render("login");
+	if(req.isAuthenticated()){
+		res.redirect("/user/docs/"+req.user.username);//if the user is logged in he would be directed
+	}
+	else
+		res.render("login");
 });
 
 router.post("/login",	

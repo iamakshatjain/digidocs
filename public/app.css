@@ -1,0 +1,102 @@
+html {
+  scroll-behavior: smooth;
+}
+footer{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: grey;
+	color: white;
+	text-align: center;
+	height: 25px;
+}
+footer p{
+	margin-bottom: 0;
+}
+
+footer a{
+	color: white;
+	text-decoration: underline;
+}
+
+#main{
+    /*margin-top: 8vh;*/
+    height: 90vh;
+    width: 100%;
+    background: url("https://cdn.pixabay.com/photo/2016/11/21/14/12/books-1845614_960_720.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:black;
+    text-align: left;
+    text-shadow:0px 4px 3px rgba(0,0,0,0.4),
+				0px 8px 13px rgba(0,0,0,0.1),
+				0px 18px 23px rgba(0,0,0,0.1);
+	background-position: center;
+}
+
+#main-text{
+	margin-left: 5vw;
+}
+
+#main-text h1{
+	font-size: 5rem;
+	padding-top: 20vh;
+	color: #37474f;	
+}
+
+#main-text p{
+	font-size: 2rem;
+}
+
+.Data{
+	text-align: center;
+}
+
+#about{
+	/*background-color: #eceff1;*/
+	border-radius: 10px;
+}
+img{
+	width: 60vw;
+	border-radius: 10px;
+}
+p{
+	margin-top: 0;
+    margin-bottom: 1rem;
+    padding: 15px;
+    color: #1a237e;
+}
+.desc-image{
+	border-radius: 10px;
+	float: center;
+}
+.section-heading{
+	font-size: 3rem;
+	margin: 10px;
+	color: #1a237e;
+	transition: 1s ease;
+}
+.text-data{
+	font-size: 1.2rem;
+	margin-top: 15px;
+}
+
+#contact{
+	height: 20vh;
+	background-color: #eceff1;
+	border-radius: 10px;
+}
+
+.github{
+	font-size: 2rem;
+	/*margin: 30px;*/
+}
+.linkedIn{
+	font-size: 2rem;
+	margin-left: 50px;
+}
+.mail{
+	font-size: 2rem;
+	margin-left: 50px;
+}

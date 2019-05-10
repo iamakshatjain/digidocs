@@ -4,8 +4,7 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const userSchema = new mongoose.Schema({
 	username:String,
 	password:String,
-	email:String,
-	documents:[String]//this could be converted to an array of objects for documents
+	documents:[String]//this could be converted to an array of objects for documents when actual documents are uploaded
 });
 
 userSchema.plugin(passportLocalMongoose);

@@ -5,7 +5,8 @@ const express = require("express"),
 	mongoose = require("mongoose"),
 	expressSession = require("express-session"),
 	bodyParser = require("body-parser"),
-	dotenv = require("dotenv");
+	dotenv = require("dotenv"),
+	flash = require("connect-flash");
 
 const User = require("./models/user");
 
@@ -16,6 +17,7 @@ dotenv.config();
 app.use(express.static("./public"));
 app.set("view engine","ejs");
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(flash());
 mongoose.connect(process.env.DATABASEURL,{useNewUrlParser:true});
 
 app.use(expressSession({
@@ -32,6 +34,8 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use(function(req,res,next){//to pass this to all the templates
 	res.locals.currentUser = req.user;
+	res.locals.error = req.flash("error");
+	res.locals.success = req.flash("success");
 	next();
 });
 

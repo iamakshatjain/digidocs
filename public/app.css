@@ -154,3 +154,8 @@ label:hover{
 	border-radius: 100px;
 	margin:15px;
 }
+
+/*hide or show alert messages*/
+.hide{
+	display:none;
+}

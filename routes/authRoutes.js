@@ -26,7 +26,8 @@ router.get("/login",(req,res) => {
 
 router.post("/login",	
 	passport.authenticate('local', { 
- 		failureRedirect: '/login' 
+ 		failureRedirect: '/login', 
+ 		failureFlash: true
  	}),(req,res) => {
 		console.log("login by:");//redirects to the docs only on login
 		console.log(req.user.username);
@@ -41,6 +42,8 @@ router.post("/register", (req,res) => {
 	User.register(new User({username : req.body.username}),req.body.password,(err,user) => {
 		if(err){
 			console.log(err);
+			//flash:err.message
+			req.flash("error",err.message);
 			res.redirect("/register");
 		}
 		else{
